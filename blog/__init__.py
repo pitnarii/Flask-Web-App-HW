@@ -12,7 +12,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 #db
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://c21100955:Yamesaki1994@csmysql.cs.cf.ac.uk:3306/c21100955_flask_lab_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://c211*****:***@csmysql.cs.cf.ac.uk:3306/c21100955_flask_lab_db'
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
