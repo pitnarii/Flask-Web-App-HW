@@ -1,0 +1,15 @@
+{% extends "layout.html" %} {% block content %} {% for message in get_flashed_messages() %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+<div class="shadow p-3 mb-5 bg-body rounded">
+    <h2>{{ post.title }}</h2><small>By: {{ post.author }}<br/>{{ post.date }}</small><br/><br/> {{ post.content }}<br/>
+    <br/>{% for comment in post.comments %} {{comment.user.username}} {{comment.date}} {{ comment.text }} {% endfor %}
+    <form class="input-group mb-3" method="POST" action="/create-comment/{{post.id}}">
+        <input type="text" id="text" class="form-control" placeholder="comment here!">
+        <button type="submit" class="btn btn-primary">Comment</button>
+    </form>
+</div>
+<a href="{{ url_for('posts') }}" class="btn btn-outline-secondary btn-sm">Back To Blog List</a> {% endblock %}
